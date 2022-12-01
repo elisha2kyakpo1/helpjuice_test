@@ -35,7 +35,7 @@
 
 To get started, you should first get this file in your local machine by cloning or forking this project or typing in your terminal
 ```
- git clone 
+ git clone https://github.com/elisha2kyakpo1/helpjuice_test.git
  cd helpjuice_test
 ```
 Before you start using the app, you need to be sure that you have Ruby installed on your computer, by typing.
