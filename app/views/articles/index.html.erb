@@ -1,14 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="d-flex justify-content-center mt-5 align-items-center">
+  <div>
+    <%= render "articles/search_form" %>
+    <p style="color: green"><%= notice %></p>
 
-<h1>Articles</h1>
+    <h1>Articles</h1>
 
-<div id="articles">
-  <% @articles.each do |article| %>
-    <%= render article %>
-    <p>
-      <%= link_to "Show this article", article %>
-    </p>
-  <% end %>
+    <div id="articles">
+      <% @articles.each do |article| %>
+        <%= render article %>
+        <p>
+          <%= link_to "Show this article", article %>
+        </p>
+      <% end %>
+    </div>
+
+    <%= link_to "New article", new_article_path %>
+  </div>
 </div>
-
-<%= link_to "New article", new_article_path %>

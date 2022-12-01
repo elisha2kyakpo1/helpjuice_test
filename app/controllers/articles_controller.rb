@@ -10,6 +10,20 @@ class ArticlesController < ApplicationController
   def show
   end
 
+  def search
+    if params[:content_search].present?
+      @articles = Article.filter_by_content(params[:content_search])
+    else
+      @articles = []
+    end
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update("search_results",
+                                partial: "articles/search_results", locals: { articles: @articles })
+      end
+    end
+  end
+
   # GET /articles/new
   def new
     @article = Article.new
