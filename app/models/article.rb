@@ -1,5 +1,11 @@
 class Article < ApplicationRecord
-  include PgSearch::Model
-  pg_search_scope :search_by_content, against: %i[title content]
-  scope :filter_by_content, ->(content) { where('content ILIKE ?', "%#{content}%") }
+  searchkick word_start: %i[title content]
+
+  def search_data
+    if params[:q].present?
+      @articles = Article.search params[:q]
+    else
+      @articles = Article.all
+    end
+  end
 end

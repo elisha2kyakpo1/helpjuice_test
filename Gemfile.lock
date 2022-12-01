@@ -95,11 +95,24 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    elastic-transport (8.1.0)
+      faraday (< 3)
+      multi_json
+    elasticsearch (8.5.2)
+      elastic-transport (~> 8)
+      elasticsearch-api (= 8.5.2)
+    elasticsearch-api (8.5.2)
+      multi_json
     erubi (1.11.0)
     faker (2.23.0)
       i18n (>= 1.8.11, < 2)
+    faraday (2.7.1)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -122,6 +135,7 @@ GEM
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.6.0)
+    multi_json (1.15.0)
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
@@ -201,7 +215,11 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    searchkick (5.1.0)
+      activemodel (>= 5.2)
+      hashie
     selenium-webdriver (4.6.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -251,6 +269,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  elasticsearch
   faker (~> 2.19)
   importmap-rails
   jbuilder
@@ -261,6 +280,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rspec
   rspec-rails
+  searchkick
   selenium-webdriver
   sprockets-rails
   stimulus-rails

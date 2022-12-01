@@ -75,3 +75,6 @@ end
 gem 'devise'
 gem 'faker', '~> 2.19'
 gem 'pg_search', '~> 2.3', '>= 2.3.6'
+gem 'searchkick'
+
+gem 'elasticsearch'
