@@ -1,5 +1,5 @@
 class MySearchesController < ApplicationController
-  before_action :set_my_search, only: %i[ show edit update destroy ]
+  before_action :set_my_search, only: %i[show edit update destroy]
 
   # GET /my_searches or /my_searches.json
   def index
@@ -7,8 +7,7 @@ class MySearchesController < ApplicationController
   end
 
   # GET /my_searches/1 or /my_searches/1.json
-  def show
-  end
+  def show; end
 
   # GET /my_searches/new
   def new
@@ -16,8 +15,7 @@ class MySearchesController < ApplicationController
   end
 
   # GET /my_searches/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /my_searches or /my_searches.json
   def create
@@ -25,7 +23,7 @@ class MySearchesController < ApplicationController
 
     respond_to do |format|
       if @my_search.save
-        format.html { redirect_to my_search_url(@my_search), notice: "My search was successfully created." }
+        format.html { redirect_to my_search_url(@my_search), notice: 'My search was successfully created.' }
         format.json { render :show, status: :created, location: @my_search }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class MySearchesController < ApplicationController
   def update
     respond_to do |format|
       if @my_search.update(my_search_params)
-        format.html { redirect_to my_search_url(@my_search), notice: "My search was successfully updated." }
+        format.html { redirect_to my_search_url(@my_search), notice: 'My search was successfully updated.' }
         format.json { render :show, status: :ok, location: @my_search }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class MySearchesController < ApplicationController
     @my_search.destroy
 
     respond_to do |format|
-      format.html { redirect_to my_searches_url, notice: "My search was successfully destroyed." }
+      format.html { redirect_to my_searches_url, notice: 'My search was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_my_search
-      @my_search = MySearch.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def my_search_params
-      params.require(:my_search).permit(:body, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_my_search
+    @my_search = MySearch.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def my_search_params
+    params.require(:my_search).permit(:body, :user_id)
+  end
 end

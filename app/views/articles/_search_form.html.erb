@@ -1,5 +1,5 @@
-<div class="">
-  <div>
+<div class="search-input">
+  <div class="w-100">
     <%= form_with url: search_articles_path, method: :post, data: {controller: "query", query_target: "form" } do |form| %>
       <%= form.search_field :content_search, data: { action: "input->query#search" }, class: "form-control" %>
         

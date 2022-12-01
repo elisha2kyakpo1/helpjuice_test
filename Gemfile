@@ -72,5 +72,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+gem 'devise'
 gem 'faker', '~> 2.19'
 gem 'pg_search', '~> 2.3', '>= 2.3.6'
