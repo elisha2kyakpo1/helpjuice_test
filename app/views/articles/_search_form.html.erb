@@ -1,10 +1,11 @@
-<div class="d-flex justify-content-between align-items-center">
+<div class="">
   <div>
-    <%= form_with url: search_articles_path, method: :post, data: {controller: "search_query", debounce_target: "form" } do |form| %>
-      <%= form.search_field :title_search, data: { action: "input->search_query#search" }, class: "form-control" %>
+    <%= form_with url: search_articles_path, method: :post, data: {controller: "query", query_target: "form" } do |form| %>
+      <%= form.search_field :content_search, data: { action: "input->query#search" }, class: "form-control" %>
         
     <% end %>
-
-    <div id="search_results"></div>
+    <div>
+      <div id="search_results"></div>
+    </div>
   </div>
 </div>

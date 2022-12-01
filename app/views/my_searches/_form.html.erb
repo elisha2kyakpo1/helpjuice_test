@@ -1,0 +1,27 @@
+<%= form_with(model: my_search) do |form| %>
+  <% if my_search.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(my_search.errors.count, "error") %> prohibited this my_search from being saved:</h2>
+
+      <ul>
+        <% my_search.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_field :body %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

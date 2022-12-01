@@ -1,25 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe "articles/edit", type: :view do
-  let(:article) {
+RSpec.describe 'articles/edit', type: :view do
+  let(:article) do
     Article.create!(
-      title: "MyString",
-      content: "MyString"
+      title: 'MyString',
+      content: 'MyString'
     )
-  }
+  end
 
   before(:each) do
     assign(:article, article)
   end
 
-  it "renders the edit article form" do
+  it 'renders the edit article form' do
     render
 
-    assert_select "form[action=?][method=?]", article_path(article), "post" do
+    assert_select 'form[action=?][method=?]', article_path(article), 'post' do
+      assert_select 'input[name=?]', 'article[title]'
 
-      assert_select "input[name=?]", "article[title]"
-
-      assert_select "input[name=?]", "article[content]"
+      assert_select 'input[name=?]', 'article[content]'
     end
   end
 end
