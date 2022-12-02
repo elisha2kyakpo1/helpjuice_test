@@ -1,21 +1,20 @@
 class ArticlesController < ApplicationController
   def index
     @query = params[:content_search]
-    if @query.nil?
+    Searches.new(@query, current_user.id).save_query if !@query.nil? && !@query.empty?
     @articles = Article.all
-    end
   end
 
   def search
-    if params[:content_search].present?
-      @articles = Article.search_item(params[:content_search])
-    else
-      @articles = []
-    end
+    @articles = if params[:content_search].present?
+                  Article.search_item(params[:content_search])
+                else
+                  []
+                end
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream.update("search_results",
-                                partial: "articles/search_results", locals: { articles: @articles })
+        render turbo_stream: turbo_stream.update('search_results',
+                                                 partial: 'articles/search_results', locals: { articles: @articles })
       end
     end
   end

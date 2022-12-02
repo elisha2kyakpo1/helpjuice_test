@@ -1,6 +1,6 @@
 class MySearchesController < ApplicationController
   def index
-    @top_searches = MySearch.first(5)
+    @top_searches = MySearch.saved_search
   end
 
   def recent_searches
