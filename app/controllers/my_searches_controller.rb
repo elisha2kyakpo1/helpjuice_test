@@ -1,6 +1,7 @@
 class MySearchesController < ApplicationController
   def index
-    @top_searches = MySearch.saved_search
+    @top_searches = MySearch.saved_search.where(user: current_user)
+    
   end
 
   def recent_searches
