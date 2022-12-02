@@ -1,10 +1,10 @@
 class MySearchesController < ApplicationController
-  def most_recent
-    @top_searches = @searches.first(5)
+  def index
+    @top_searches = MySearch.first(5)
   end
 
   def recent_searches
-    @searched = My_search.order('created_at desc').limit(50)
+    @searched = MySearch.order('created_at desc').limit(50)
   end
 
   def clear_searches

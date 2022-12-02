@@ -1,14 +1,9 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>My searches</h1>
 
 <div id="my_searches">
-  <% @my_searches.each do |my_search| %>
-    <%= render my_search %>
-    <p>
-      <%= link_to "Show this my search", my_search %>
-    </p>
+  <%if @top_searches.any?%>
+    <% @top_searches.each do |search| %>
+      <%= search.body %>
+    <% end %>
   <% end %>
 </div>
-
-<%= link_to "New my search", new_my_search_path %>

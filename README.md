@@ -74,7 +74,6 @@ Finally, run the migration to populate your database to have the tables
 
 You then interract with the program from rails server on the web by
 ```
-RUBY
  rails s
 ```
 
