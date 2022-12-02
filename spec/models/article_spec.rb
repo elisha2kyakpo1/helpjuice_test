@@ -20,10 +20,5 @@ RSpec.describe Article, type: :model do
       subject.content = nil
       expect(subject).to_not be_valid
     end
-
-    it 'Should save when the content is not blank' do
-      subject.content = 'I have a content'
-      expect(subject).to_be be_valid
-    end
   end
 end
