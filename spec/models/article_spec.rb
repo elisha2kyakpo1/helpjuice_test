@@ -13,7 +13,7 @@ RSpec.describe Article, type: :model do
 
     it 'Should save when the body is not blank' do
       subject.title = 'I have a title'
-      expect(subject).to_be be_valid
+      expect(subject).to be_valid
     end
 
     it 'The content should not be blank' do

@@ -9,8 +9,9 @@ RSpec.describe Searches, type: :service do
     end
 
     it 'should update the last saved search' do
-      subject.save_query
       subject.body = 'hello world'
+      subject.user_id = 1
+      subject.save_query
       expect(subject.save_query.updated_at).to be > MySearch.first.updated_at
     end
   end

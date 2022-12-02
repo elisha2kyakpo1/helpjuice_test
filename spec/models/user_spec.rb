@@ -19,6 +19,6 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Associations' do
-    it { should have_many(:appointments) }
+    it { should have_many(:my_searches) }
   end
 end
