@@ -6,9 +6,9 @@ class Searches
 
   def save_query
     recent_search = MySearch.first
-    if recent_search && equal(recent_search.query.downcase, @query.downcase)
-      recent_search.query = @query
-      recent_search.updated_at = DateTime.now if recent_search.query == @query
+    if recent_search && equal(recent_search.body.downcase, @query.downcase)
+      recent_search.body = @query
+      recent_search.updated_at = DateTime.now if recent_search.body == @query
       recent_search.save!
       return recent_search
     end

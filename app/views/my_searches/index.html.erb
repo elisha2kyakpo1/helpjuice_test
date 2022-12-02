@@ -3,7 +3,8 @@
 <div id="my_searches">
   <%if @top_searches.any?%>
     <% @top_searches.each do |search| %>
-      <%= search.body %>
+
+      <p><%= search.body %></p>
     <% end %>
   <% end %>
 </div>

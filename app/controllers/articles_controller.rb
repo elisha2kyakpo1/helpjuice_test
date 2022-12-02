@@ -1,12 +1,15 @@
 class ArticlesController < ApplicationController
   def index
-    @query = params[:content_search]
-    Searches.new(@query, current_user.id).save_query if !@query.nil? && !@query.empty?
+    # @query = params[:content_search]
+    # if !@query.nil? && !@query.empty?
+    #   Searches.new(@query,current_user.id).save_query
+    # end
     @articles = Article.all
   end
 
   def search
     @articles = if params[:content_search].present?
+                  Searches.new(params[:content_search], current_user.id).save_query
                   Article.search_item(params[:content_search])
                 else
                   []
