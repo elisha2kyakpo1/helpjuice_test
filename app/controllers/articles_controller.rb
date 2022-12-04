@@ -1,9 +1,5 @@
 class ArticlesController < ApplicationController
   def index
-    # @query = params[:content_search]
-    # if !@query.nil? && !@query.empty?
-    #   Searches.new(@query,current_user.id).save_query
-    # end
     @articles = Article.all
   end
 

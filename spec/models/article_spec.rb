@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Article, type: :model do
   subject do
-    described_class.new(title: 'hello world', content: 'hello world content')
+    described_class.new(title: 'this is a title', content: 'hello world content')
   end
 
   describe 'Validations' do
@@ -11,7 +11,7 @@ RSpec.describe Article, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'Should save when the body is not blank' do
+    it 'Should save when the title is not blank' do
       subject.title = 'I have a title'
       expect(subject).to be_valid
     end

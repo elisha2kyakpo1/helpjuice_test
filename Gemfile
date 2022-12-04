@@ -78,3 +78,4 @@ gem 'pg_search', '~> 2.3', '>= 2.3.6'
 gem 'searchkick'
 
 gem 'elasticsearch'
+gem 'rails-controller-testing'
