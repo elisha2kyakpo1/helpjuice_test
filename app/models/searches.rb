@@ -1,4 +1,8 @@
 class Searches
+  # the save_query function compares the last saved search to the new search,
+  # divide the search by two to see if the first part match the replace and update
+  # The search and user id is saved in the my_search database.
+
   def initialize(search, user_id)
     @search = search
     @user_id = user_id

@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  # Here users search and save their search
   def search
     @articles = if params[:content_search].present?
                   Searches.new(params[:content_search], current_user.id).save_query
@@ -16,15 +17,5 @@ class ArticlesController < ApplicationController
                                                  partial: 'articles/search_results', locals: { articles: @articles })
       end
     end
-  end
-
-  def autocomplete
-    render json: Article.search(params[:query], {
-                                  fields: ['title^5', 'content'],
-                                  match: :word_start,
-                                  limit: 10,
-                                  load: false,
-                                  misspellings: { below: 5 }
-                                }).map(&:title)
   end
 end
