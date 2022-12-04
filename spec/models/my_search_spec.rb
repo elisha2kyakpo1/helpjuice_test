@@ -1,39 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe MySearch, type: :model do
-  before(:all) do
-    @user = User.create(
-      name: 'Elisha kyakopo',
-      password: '123456e',
-      email: 'elisha@gmail.com'
-    )
-
-    @my_search = MySearch.create(
-      body: 'Hello World!',
-      user_id: @user.id
-    )
-  end
-
-  describe 'Validations' do
-    
-    it '@my_sesarch should be valid' do
-      expect(@my_search).to be_valid
+  subject { MySearch.new(body: 'I am a software developer', user_id: 1) }
+  before { subject.save }
+  context 'validations' do
+    it 'body should be present' do
+      subject.body = nil
+      expect(subject).to_not be_valid
     end
 
-    it 'The body should not be blank' do
-      @my_search.body = nil
-      expect(@my_search).to_not be_valid
+    it 'body should not be empty' do
+      subject.body = ''
+      expect(subject).to_not be_valid
     end
 
-    it 'Should save when the body is not blank' do
-      @my_search.body = 'hello world body'
-      @my_search.user_id = 1
-      expect(@my_search).to be_valid
+    it 'body should not be less than 3 characters' do
+      subject.body = 'I'
+      expect(subject).to_not be_valid
     end
 
-    it 'Should not save without user_id' do
-      @my_search.user_id = nil
-      expect(@my_search).to_not be_valid
+    it 'body should not be more than 500 characters' do
+      subject.body = 'I am a software developer' * 100
+      expect(subject).to_not be_valid
+    end
+
+    it 'should have user id' do
+      subject.user_id = nil
+      expect(subject).to_not be_valid
     end
   end
 end

@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :content, presence: true
-  scope :search_item, ->(search) { where('title ILIKE :keyword OR content ILIKE :keyword', keyword: "%#{search}%") }
+  scope :search_item, -> (title) { where('title ILIKE ?', "%#{title}%") }
 end

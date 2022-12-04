@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
+    Searches.new(params[:content_search], current_user.id).save_query
   end
 
   def search
     @articles = if params[:content_search].present?
-                  Searches.new(params[:content_search], current_user.id).save_query
                   Article.search_item(params[:content_search])
                 else
                   []

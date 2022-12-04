@@ -1,19 +1,19 @@
 class Searches
-  def initialize(query, user_id)
-    @query = query
+  def initialize(search, user_id)
+    @search = search
     @user_id = user_id
   end
 
   def save_query
     recent_search = MySearch.first
-    if recent_search && equal(recent_search.body.downcase, @query.downcase)
-      recent_search.body = @query
-      recent_search.updated_at = DateTime.now if recent_search.body == @query
+    if recent_search && equal(recent_search.body.downcase, @search.downcase)
+      recent_search.body = @search
+      recent_search.updated_at = DateTime.now if recent_search.body == @search
       recent_search.save!
       return recent_search
     end
 
-    MySearch.create! body: @query, user_id: @user_id
+    MySearch.create! body: @search, user_id: @user_id
   end
 
   private
