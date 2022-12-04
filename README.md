@@ -1,7 +1,7 @@
 <h1 align="center">HelpJuice test</h1>
 <div align="center">
   <h3>
-  The app is have realtime search box, where users search articles, and then save search queries, have analytics that display what users were searching for. You have to click Analysis button to see what you search. The query will be saved after 5 seconds to give time for users who are a bit slow when typing.
+  The realtime search box, where users search articles, and then save search queries, have analytics that display what users were searching for. You have to click Analysis button to see what you search. The query will be saved after 5 seconds to give time for users who are a bit slow when typing.
   </h3>
 </div>
 
